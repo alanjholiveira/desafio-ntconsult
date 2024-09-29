@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  db-mysql:
+    container_name: db_desafio_pauta
+    image: mysql:8.0.34-debian
+    hostname: app_db
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: desafio_pauta#Admin
+      MYSQL_USER: desafio_pauta
+      MYSQL_PASSWORD: desafio_pauta
+      MYSQL_DATABASE: desafio_pauta_DB
+    ports:
+      - '3306:3306'
+    networks:
+      - DESAFIO_PAUTA_NETWORK
+    volumes:
+      - DB_DATA:/var/lib/mysql
+
+  rabbitmq:
+    container_name: rabbitmq_deafio_pauta
+    image: rabbitmq:4.0.2-management-alpine
+    hostname: 'app-rabbitmq'
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+      - "25676:25676"
+    networks:
+      - DESAFIO_PAUTA_NETWORK
+    volumes:
+      - EVENT_DATA:/var/lib/rabbitmq/mnesia/
+
+volumes:
+  DB_DATA:
+  EVENT_DATA:
+
+networks:
+  DESAFIO_PAUTA_NETWORK:
+    driver: "bridge"

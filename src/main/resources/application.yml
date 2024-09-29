@@ -1,1 +1,21 @@
-spring.application.name=desafio-pauta
+spring:
+  application:
+    name: desafio-pauta
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: ${DATASOURCE_URL:jdbc:mysql://127.0.0.1:3306/desafio_pauta_DB}
+    username: ${DATASOURCE_USER:desafio_pauta}
+    password: ${DATASOURCE_PASS:desafio_pauta}
+
+event:
+  cron: 0 30 * * * *
+  rabbitmq:
+    host: ${RABBITMQ_HOST:rabbitmq_desafio_api}
+    port: ${RABBITMQ_PORT:5672}
+    password: ${RABBITMQ_PASS:guest}
+    username: ${RABBITMQ_USER:guest}
+    virtualHost: ${RABBITMQ_VHOST:/}
+    desafio:
+      exchange: desafio.pauta.exchange
+      queue: notificacao.pauta.queue
+      routing-key: #
