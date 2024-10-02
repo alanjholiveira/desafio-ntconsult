@@ -28,7 +28,7 @@ public class Session {
     private UUID id;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "poll_id")
+    @JoinColumn(name = "pauta_id")
     private Pauta pauta;
 
     @Column(nullable = false)

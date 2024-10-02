@@ -29,6 +29,9 @@ public class Vote {
     @ManyToOne(fetch = FetchType.LAZY)
     private Session session;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Pauta pauta;
+
     @Enumerated(EnumType.STRING)
     private VoteType voteType;
 
