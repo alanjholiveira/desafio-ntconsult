@@ -19,7 +19,7 @@ services:
       - DB_DATA:/var/lib/mysql
 
   rabbitmq:
-    container_name: rabbitmq_deafio_pauta
+    container_name: rabbitmq_desafio_pauta
     image: rabbitmq:4.0.2-management-alpine
     hostname: 'app-rabbitmq'
     ports:

@@ -7,8 +7,16 @@ spring:
     username: ${DATASOURCE_USER:desafio_pauta}
     password: ${DATASOURCE_PASS:desafio_pauta}
 
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database: mysql
+  sql:
+    init:
+      mode: always
+
 event:
-  cron: 0 30 * * * *
   rabbitmq:
     host: ${RABBITMQ_HOST:rabbitmq_desafio_api}
     port: ${RABBITMQ_PORT:5672}
@@ -19,3 +27,9 @@ event:
       exchange: desafio.pauta.exchange
       queue: notificacao.pauta.queue
       routing-key: #
+
+  get-result:
+    cron: 0 */10 * * * *
+
+  check-session-valid:
+    cron: 0 */1 * * * *
