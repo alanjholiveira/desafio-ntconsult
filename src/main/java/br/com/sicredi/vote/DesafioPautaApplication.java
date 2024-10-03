@@ -6,7 +6,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
-@EnableFeignClients
+//@EnableFeignClients //Comentado porque API está offline e foi criado mock com comportamento semelhante
 @EnableJpaAuditing
 public class DesafioPautaApplication {
 
