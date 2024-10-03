@@ -115,9 +115,9 @@ public class VoteService {
 
 
     private AssociateStatus checkCpfIsVote(final String cpf) {
-        // API Está offline
-        // final var result = Optional.of(associateStatusClient.getStatus(cpf));
-        final var result = Optional.of(StatusResponse.from(AssociateStatus.ABLE_TO_VOTE));
+        // API Está offline, foi criado MOCK com comportamento proximo da API
+         final var result = Optional.of(associateStatusClient.getStatus(cpf));
+//        final var result = Optional.of(StatusResponse.from(AssociateStatus.ABLE_TO_VOTE));
 
         return result.map(StatusResponse::status)
                 .orElseThrow(NotFoundException::new);
