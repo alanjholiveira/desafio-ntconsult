@@ -74,4 +74,4 @@ Como a API externa necessária para o desafio estava offline, foi implementado u
 7. **Acesse a documentação do Swagger**:
    - Após a aplicação estar em execução, a documentação da API estará disponível em:
    ```bash
-   http://localhost:8080/swagger-ui.html
+   http://localhost:8080/swagger-ui/index.html
